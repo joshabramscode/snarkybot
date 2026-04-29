@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+
+  <!-- Code gate (shown on first launch until a valid code is entered) -->
+  <div id="code-gate" class="container">
+    <div class="logo" style="padding: 8px 0 16px">
+      <span class="logo-icon">🦈</span>
+      <span class="logo-text">Snark Attack</span>
+    </div>
+    <div class="card settings-card">
+      <p class="section-label">Access Code</p>
+      <div class="input-row">
+        <input type="text" id="code-input" placeholder="Enter your code" autocomplete="off" spellcheck="false">
+        <button id="unlock-btn" class="btn-primary">Unlock</button>
+      </div>
+      <p id="code-error" class="hint hidden" style="color:#f87171">Invalid code — try again.</p>
+    </div>
+  </div>
+
+  <!-- Main UI (hidden until code is validated) -->
+  <div id="main-ui" class="hidden">
+    <div class="container">
+
+      <header>
+        <div class="logo">
+          <span class="logo-icon">🦈</span>
+          <span class="logo-text">Snark Attack</span>
+        </div>
+        <div style="display:flex;gap:2px">
+          <button id="pause-btn" class="icon-btn" title="Pause roasting">⏸</button>
+          <button id="toggle-settings-btn" class="icon-btn" title="Settings">⚙️</button>
+        </div>
+      </header>
+
+      <!-- Settings panel -->
+      <div id="settings-panel" class="card settings-card hidden">
+        <p class="section-label">Settings</p>
+        <div class="setting-row">
+          <span class="setting-label">Popup notifications</span>
+          <div class="seg-control" id="popup-control">
+            <button class="seg-btn" data-value="true">On</button>
+            <button class="seg-btn" data-value="false">Off</button>
+          </div>
+        </div>
+        <div class="setting-row">
+          <span class="setting-label">Roast frequency</span>
+          <div class="seg-control" id="freq-control">
+            <button class="seg-btn" data-value="5">Normal</button>
+            <button class="seg-btn" data-value="10">Chill</button>
+          </div>
+        </div>
+        <div class="setting-row">
+          <span class="setting-label">Roast tone</span>
+          <div class="seg-control" id="tone-control">
+            <button class="seg-btn" data-value="savage">Savage</button>
+            <button class="seg-btn" data-value="friendly">Friendly</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Latest roast -->
+      <div class="card roast-card">
+        <div class="roast-header">
+          <span class="section-label">Latest Roast</span>
+          <button id="refresh-btn" class="btn-primary btn-sm">New Roast</button>
+        </div>
+        <p id="roast-text" class="roast-text">...</p>
+        <p id="roast-meta" class="roast-meta"></p>
+      </div>
+
+      <!-- Weekly stats -->
+      <div class="card stats-card">
+        <div class="top-section">
+          <button id="top-toggle" class="top-toggle">
+            <span class="top-label">Top Searches</span>
+            <span class="toggle-arrow">▾</span>
+          </button>
+          <ul id="top-queries"></ul>
+        </div>
+      </div>
+
+      <!-- Roast History -->
+      <div class="card history-card">
+        <button id="history-toggle" class="top-toggle collapsed">
+          <span class="section-label" style="margin-bottom:0">Roast History</span>
+          <span class="toggle-arrow">▾</span>
+        </button>
+        <div id="history-list" class="history-list collapsed"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

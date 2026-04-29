@@ -1,0 +1,321 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+.hidden { display: none !important; }
+
+body {
+  width: 340px;
+  background: #0d0d1a;
+  color: #ddd8ff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.container {
+  padding: 12px 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+/* ── Header ── */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 2px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.logo-icon { font-size: 18px; }
+
+.logo-text {
+  font-size: 17px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #a78bfa, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.4px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 3px 5px;
+  border-radius: 6px;
+  opacity: 0.55;
+  transition: opacity 0.15s, background 0.15s;
+}
+
+.icon-btn:hover { opacity: 1; background: rgba(255,255,255,0.06); }
+
+/* ── Cards ── */
+.card {
+  background: #15152a;
+  border-radius: 10px;
+  padding: 11px 12px;
+  border: 1px solid #262646;
+}
+
+.card.hidden { display: none; }
+
+/* ── Settings ── */
+.settings-card { border-color: #5740b0; }
+
+.section-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #a78bfa;
+  margin-bottom: 8px;
+}
+
+.input-row {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.input-row input {
+  flex: 1;
+  background: #0d0d1a;
+  border: 1px solid #4e4e88;
+  border-radius: 6px;
+  color: #ddd8ff;
+  padding: 6px 9px;
+  font-size: 12px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.input-row input:focus { border-color: #7c3aed; }
+
+.btn-primary {
+  background: #7c3aed;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  padding: 6px 11px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+
+.btn-primary:hover    { background: #6d28d9; }
+.btn-primary:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.btn-sm { padding: 4px 9px; font-size: 11px; }
+
+.hint {
+  font-size: 10px;
+  color: #9490b8;
+}
+
+.hint a {
+  color: #a78bfa;
+  text-decoration: none;
+}
+
+.hint a:hover { text-decoration: underline; }
+
+/* ── Inline settings rows ── */
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #262646;
+}
+
+.setting-label {
+  font-size: 11px;
+  color: #9490b8;
+}
+
+.seg-control {
+  display: flex;
+  background: #0d0d1a;
+  border-radius: 5px;
+  border: 1px solid #4e4e88;
+  overflow: hidden;
+}
+
+.seg-btn {
+  background: none;
+  border: none;
+  color: #6b5fa0;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 9px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.seg-btn.active {
+  background: #7c3aed;
+  color: #fff;
+}
+
+/* ── Pause button active state ── */
+#pause-btn.paused { opacity: 1; color: #f87171; }
+
+
+/* ── Roast card ── */
+.roast-card {
+  background: linear-gradient(145deg, #15152a, #1f1040);
+  border-color: #4c2a8a;
+}
+
+.roast-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.roast-text {
+  font-size: 13px;
+  line-height: 1.65;
+  color: #ede9fe;
+  margin-bottom: 7px;
+  min-height: 40px;
+}
+
+.roast-text.placeholder { color: #555578; font-style: italic; }
+
+.roast-meta {
+  font-size: 10px;
+  color: #4a4470;
+}
+
+/* ── Stats card ── */
+/* ── Top queries ── */
+.top-section { border-top: 1px solid #1e1e3c; padding-top: 9px; }
+
+.top-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 6px;
+}
+
+.top-toggle:hover .top-label,
+.top-toggle:hover .toggle-arrow { color: #a78bfa; }
+
+.top-label {
+  font-size: 10px;
+  color: #9490b8;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  transition: color 0.15s;
+}
+
+.toggle-arrow {
+  font-size: 10px;
+  color: #9490b8;
+  transition: transform 0.2s, color 0.15s;
+}
+
+.top-toggle.collapsed .toggle-arrow { transform: rotate(-90deg); }
+
+#top-queries.collapsed { display: none; }
+
+#top-queries {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#top-queries li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  gap: 2px 6px;
+  position: relative;
+}
+
+#top-queries li.empty {
+  display: block;
+  color: #555578;
+  font-style: italic;
+  font-size: 11px;
+  text-align: center;
+  padding: 4px 0;
+}
+
+.bar-bg {
+  grid-column: 1 / -1;
+  height: 2px;
+  background: #1e1e3c;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #5b21b6, #7c3aed);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.query-text {
+  font-size: 12px;
+  color: #c4b5fd;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.query-count {
+  font-size: 11px;
+  font-weight: 600;
+  color: #6d28d9;
+  flex-shrink: 0;
+}
+
+/* ── Roast History ── */
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.history-list.collapsed { display: none; }
+
+.history-item {
+  background: #0d0d1a;
+  border-radius: 7px;
+  padding: 8px 10px;
+  border-left: 2px solid #5b21b6;
+}
+
+.history-item .history-text {
+  font-size: 12px;
+  color: #ddd8ff;
+  line-height: 1.55;
+  margin-bottom: 4px;
+}
+
+.history-item .history-meta {
+  font-size: 10px;
+  color: #4a4470;
+}
